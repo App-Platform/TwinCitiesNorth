@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.appplatform.twincitiesnorth"
+        version   = "1.0.0">
+		
+    <name>Twin Cities North Chamber of Commerce</name>
+
+    <description>
+        Mobile app for the Twin Cities North Chamber of Commerce. 
+    </description>
+
+    <author href="http://app-platform.net" email="info@app-platform.net">
+        App-Platform.net Team
+    </author>
+	
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+    <preference name="phonegap-version" value="2.1.0" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+	<preference name="android-installLocation" value="auto" />
+
+    <icon src="iconsAndroid/icon.png" />
+	<icon src="iconsAndroid/android-icon-36x36.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="iconsAndroid/android-icon-48x48.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="iconsAndroid/android-icon-72x72.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="iconsAndroid/android-icon-96x96.png" gap:platform="android" gap:density="xhdpi" />
+
+	<gap:splash src="iconsAndroid/android-startup-image-200x320.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="iconsAndroid/android-startup-image-320x480.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="iconsAndroid/android-startup-image-480x800.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="iconsAndroid/android-startup-image-720x1280.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<gap:plugin name="ChildBrowser" />
+
+</widget>
