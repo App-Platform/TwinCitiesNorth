@@ -2,24 +2,45 @@ a#body:link{text-decoration:none;}
 a#body:visited{text-decoration:none;}
 a#body:hover{text-decoration:underline;}
 
+.center { text-align: center; }
+.right { text-align: right; float:right; }
+
+.help {
+	background-color: #fff;
+}
+
+.help p {
+	font-size: 12px;
+}
+
 .headerText {
-	font-size: 				18px; 
-	font-weight:			bold;
+	font-size: 		18px; 
+	font-weight:	bold;
 }
 .smallText {
-	font-size: 				12px; 
+	font-size: 		12px; 
 }
 .footerText {
-	font-size:				10px;
-	margin-top:				-20px; 
-	margin-bottom:			15px;
+	text-align:  	center;
+	font-size:		10px;
+	margin-top:		20px; 
+	margin-bottom:	15px;
 }
 .linkText {
-	line-height:			35px;
+	line-height:	35px;
 }
 ul {
-	margin-left: 			-15px;
+	margin-left: 	-15px;
 }
+.img {
+	min-width: auto;
+	max-width: 100%;
+}
+
+.container_12 .img {
+	margin-top: 1em;
+}
+
 .shadow {
 	-moz-box-shadow: 2px 2px 3px #ccc;
 	-webkit-box-shadow: 2px 2px 3px #ccc;
@@ -32,16 +53,8 @@ ul {
 	margin-right:10px;
 }
 
-label.error {
-    color: red;
-    font-size: 12px;
-    font-weight: normal;
-	margin-left: 10px;
-}
-
-
 .ui-icon-email {
-	background-image: url(images/icon-email.png);
+	background-image: url(../img/icon-email.png);
 	background-repeat: no-repeat;
 }
 
@@ -50,7 +63,7 @@ label.error {
 }
 
 .ui-icon-phone {
-	background-image: url(images/icon-phone.png);
+	background-image: url(../img/icon-phone.png);
 	background-repeat: no-repeat;
 }
 
@@ -59,7 +72,7 @@ label.error {
 }
 
 .ui-icon-facebook {
-	background-image: url(images/icon-facebook.png);
+	background-image: url(../img/icon-facebook.png);
 	background-repeat: no-repeat;
 }
 
@@ -68,7 +81,7 @@ label.error {
 }
 
 .ui-icon-twitter {
-	background-image: url(images/icon-twitter.png);
+	background-image: url(../img/icon-twitter.png);
 	background-repeat: no-repeat;
 }
 
@@ -77,12 +90,16 @@ label.error {
 }
 
 .ui-icon-linkedin {
-	background-image: url(images/icon-linkedin.png);
+	background-image: url(../img/icon-linkedin.png);
 	background-repeat: no-repeat;
 }
 
 .ui-icon-linkedin {
 	background-position: 0 50%;
+}
+
+.ui-hide-label input.ui-input-text, .ui-hide-label textarea.ui-input-text, .ui-hide-label .ui-input-search, .ui-hide-label div.ui-input-text, .ui-input-search input.ui-input-text, div.ui-input-text input.ui-input-text {
+   background:#fff;
 }
 
 
@@ -141,7 +158,6 @@ http://cubiq.org/add-to-home-screen */
 	-webkit-border-bottom-right-radius:2px;
 }
 
-
 /* The balloon arrow for iPad */
 #addToHomeScreen.addToHomeIpad .addToHomeArrow {
 	-webkit-transform:rotateZ(-135deg);
@@ -149,7 +165,6 @@ http://cubiq.org/add-to-home-screen */
 	-webkit-box-shadow:inset -1px -1px 0 #fff;
 	top:-9px; bottom:auto; left:50%;
 }
-
 
 /* Close button */
 #addToHomeScreen .addToHomeClose {
@@ -168,13 +183,11 @@ http://cubiq.org/add-to-home-screen */
 	font-size:16px;
 }
 
-
 /* The '+' icon, displayed only on iOS < 4.2 */
 #addToHomeScreen .addToHomePlus {
 	font-weight:bold;
 	font-size:1.3em;
 }
-
 
 /* The 'share' icon, displayed only on iOS >= 4.2 */
 #addToHomeScreen .addToHomeShare {
@@ -187,7 +200,6 @@ http://cubiq.org/add-to-home-screen */
 	text-indent:-9999em;
 	overflow:hidden;
 }
-
 
 /* The touch icon (if available) */
 #addToHomeScreen .addToHomeTouchIcon {
@@ -213,184 +225,33 @@ http://cubiq.org/add-to-home-screen */
 }
 
 
-/* Reformat page based on width 
-http://jquerymobile.com/demos/1.2.0/ */
+/* 960 Grid */ 
+.ui-btn, .ui-collapsible, .ui-controlgroup-controls, .bump {margin-left:10px; margin-right:10px;}
 
-@media all and (min-width:650px) {
-	.ui-mobile-viewport .footer-docs {
-		overflow: hidden;		
-	}
-	.ui-mobile-viewport .footer-docs p {
-		margin: 1em 15px;
-		float: left;		
-	}
-	.ui-mobile-viewport .footer-docs p.jqm-version {
-		float: right;
-		font-weight: normal;
-	}
+.ui-divider960 {
+	width: 4% !important;
 }
 
-.content-secondary .ui-collapsible {
-	padding: 10px 15px;
-}
-.content-secondary .ui-collapsible-inset {
-	margin: 0;
-}
-.content-secondary .ui-collapsible-content {
-	padding: 0;
-	background: none;
-}
-.content-secondary .ui-listview {
-	margin: 0;
-}
-
-
-/* docs site layout */
-
-@media all and (min-width: 650px){
-	
-	.type-home .ui-content {
-		margin-top: 5px;
+@media all and (max-width: 45em) {
+	.ui-block960-a,
+	.ui-block960-b, 
+	.ui-block960-c,
+	.ui-block960-d,
+	.ui-block960-e,
+	.ui-block960-f,
+	.ui-block960-g,
+	.ui-block960-h,
+	.ui-block960-i,
+	.ui-block960-j,
+	.ui-block960-k,
+	.ui-block960-l{ 
+		width: 100% !important;
+		float:none;
 	}
-	.ui-mobile #jqm-homeheader {
-		max-width: 340px;
-	}
-	p.intro {
-		margin: 2em 0;
-	}
-	.type-home .ui-content,
-	.type-interior > .ui-content {
-		padding: 0;
-	}
-	.type-interior > .ui-content {
-		overflow: hidden;
-	}
-	.content-secondary {
-		text-align: left;
-		float: left;
-		width: 45%;
-	}
-	.content-secondary,
-	.type-interior .content-secondary {
-		margin: 30px 0 20px 2%;
-		padding: 20px 4% 0 0;
-		background: none;
-		border-top: none;
-		position: relative;
-	}
-	.type-interior .content-secondary::after {
-		content: "";
-		display: inline-block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 1px;
-		width: 1px;
-		margin-bottom: -9999px;
-		padding-bottom: 9999px;
-		background: #bbb;
-	}
-	.type-index .content-secondary {
-		padding: 0;
-	}
-	.content-secondary .ui-collapsible {
-		margin: 0;
-		padding: 0;
-	}
-	.content-secondary .ui-collapsible-content {
-		border-left: none;
-		border-right: none;
-	}
-	.type-index .content-secondary .ui-listview {
-		margin: 0;
-	}
-	.ui-mobile #jqm-homeheader {
-		padding: 0;
-	}
-	.content-primary {
-		width: 45%;
-		float: right;
-		margin-top: 30px;
-		margin-right: 1%;
-		padding-right: 1%;
-	}
-	.content-primary ul:first-child {
-		margin-top: 0;
-	}
-	/* collapsible non-inset example */
-	.content-primary .ui-collapsible-content ul:first-child {
-		margin-top: -10px;
-	}
-	.content-secondary h2 {
-		position: absolute;
-		left: -9999px;
-	}
-	.type-interior .content-primary {
-		padding: 1.5em 6% 3em 0;
-		margin: 0;
-	}
-	/* fix up the collapsibles - expanded on desktop */
-	.content-secondary .ui-collapsible-inset {
-		margin-bottom: -1px;
-	}
-	.content-secondary .ui-collapsible-heading {
-		display: none;
-	}
-	.content-secondary .ui-collapsible-contain {
-		margin:0;
-	}
-	.content-secondary .ui-collapsible-content {
-		display: block;
-		margin: 0;
-		padding: 0;
-	}
-	.content-secondary .ui-collapsible-content,
-	.content-secondary .ui-collapsible-content > .ui-listview .ui-li-last {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-	.type-interior  .content-secondary .ui-li-divider {
-		padding-top: 1em;
-		padding-bottom: 1em;
-	}
-	.type-interior .content-secondary {
-		margin: 0;
-		padding: 0;
-	}
-	
-}
-@media all and (min-width: 750px){
-	.type-home .ui-content {
-		background-position: 39%;
-	}
-	.content-secondary {
-		width: 34%;
-	}
-	.content-primary {
-		width: 56%;
-		padding-right: 1%;
-	}
+	.container_12, .container_16, .img{margin:-10px !important;}
 }
 
-@media all and (min-width: 1200px){
-	.type-home .ui-content{
-		background-position: 38.5%;
-	}
-	.content-secondary {
-		width: 30%;
-		padding-right:6%;
-		margin: 30px 0 20px 5%;
-	}
-	.type-interior .content-secondary {
-		margin: 0;
-		padding: 0;
-	}
-	.content-primary {
-		width: 50%;
-		margin-right: 5%;
-		padding-right: 3%;
-	}
-	.type-interior .content-primary {
-		width: 60%;
-	}
+/* Fix table reflow */ 
+.ui-table-reflow.ui-responsive {
+    display: table !important;
 }

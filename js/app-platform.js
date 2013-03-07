@@ -25,14 +25,14 @@ var addToHome = (function (w) {
 		options = {
 			autostart: true,			// Automatically open the balloon
 			returningVisitor: false,	// Show the balloon to returning visitors only (setting this to true is HIGHLY RECCOMENDED)
-			animationIn: 'drop',		// drop || bubble || fade
-			animationOut: 'fade',		// drop || bubble || fade
+			animationIn: 'bubble',		// drop || bubble || fade
+			animationOut: 'drop',		// drop || bubble || fade
 			startDelay: 2000,			// 2 seconds from page load before the balloon appears
 			lifespan: 15000,			// 15 seconds before it is automatically destroyed
 			bottomOffset: 14,			// Distance of the balloon from bottom
 			expire: 0,					// Minutes to wait before showing the popup again (0 = always displayed)
 			message: '',				// Customize your message or force a language ('' = automatic)
-			touchIcon: false,			// Display the touch icon
+			touchIcon: true,			// Display the touch icon
 			arrow: true,				// Display the balloon arrow
 			hookOnLoad: true,			// Should we hook to onload event? (really advanced usage)
 			iterations: 100				// Internal/debug use
@@ -340,94 +340,24 @@ var addToHome = (function (w) {
 		reset: reset
 	};
 })(this);
-
 // End Add to home
 
-
-/*!
- * jquery mobile collapsable sections
- */
-$(function(){
-	$('body').delegate('.content-secondary .ui-collapsible-content', 'click',  function(){
-		$(this).trigger("collapse");
-	});
-});
-
-// display the version of jQM
-$(document).bind( 'pageinit', function() {
-	var version = $.mobile.version || "dev",
-		words = version.split( "-" ),
-		ver = words[0],
-		str = (words[1] || "Final"),
-		html = ver,
-		foothtml = "Version " + ver;
-
-	if( str.indexOf( "rc" ) == -1 ){
-		str = str.charAt( 0 ).toUpperCase() + str.slice( 1 );
-	} else {
-		str = str.toUpperCase().replace(".", "");
-	}
-
-	if ( $.mobile.version && str ) {
-		html += " <b>" + str + "</b>";
-		foothtml += " " + str;
-	}
-
-	$( ".type-home .ui-content p.jqm-version" ).html( html );
-	$( ".footer-docs p.jqm-version" ).html( foothtml );
-});
-
-// Turn off AJAX for local file browsing
-if ( location.protocol.substr(0,4)  === 'file' ||
-     location.protocol.substr(0,11) === '*-extension' ||
-     location.protocol.substr(0,6)  === 'widget' ) {
-
-  // Start with links with only the trailing slash and that aren't external links
-  var fixLinks = function() {
-    $( "a[href$='/'], a[href='.'], a[href='..']" ).not( "[rel='external']" ).each( function() {
-      this.href = $( this ).attr( "href" ).replace( /\/$/, "" ) + "/index.html";
-    });
-  };
-
-  // fix the links for the initial page
-  $(fixLinks);
-
-  // fix the links for subsequent ajax page loads
-  $(document).bind( 'pagecreate', fixLinks );
-
-  // Check to see if ajax can be used. This does a quick ajax request and blocks the page until its done
-  $.ajax({
-    url: '.',
-    async: false,
-    isLocal: true
-  }).error(function() {
-    // Ajax doesn't work so turn it off
-    $( document ).bind( "mobileinit", function() {
-      $.mobile.ajaxEnabled = false;
-
-      var message = $( '<div>' , {
-        'class': "ui-footer ui-bar-e",
-        style: "overflow: auto; padding:10px 15px;",
-        'data-ajax-warning': true
-      });
-
-      message
-        .append( "<h3>Note: Navigation may not work if viewed locally</h3>" )
-        .append( "<p>The AJAX-based navigation used throughout the jQuery Mobile docs may need to be viewed on a web server to work in certain browsers. If you see an error message when you click a link, try a different browser or <a href='https://github.com/jquery/jquery-mobile/wiki/Downloadable-Docs-Help'>view help</a>.</p>" );
-
-      $( document ).bind( "pagecreate", function( event ) {
-        $( event.target ).append( message );
-      });
-    });
-  });
+// iPhone 5 Height Support //
+if (window.screen.height==568) { // iPhone 4"
+document.querySelector("meta[name=viewport]").content="width=320.1";
 }
-// End jquery mobile collapsable sections
+// End iPhone 5 Height Support //
 
-
-/*!
- * form placeholder
- */
-
+// form placeholder //
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
 ;(function(f,h,$){var a='placeholder' in h.createElement('input'),d='placeholder' in h.createElement('textarea'),i=$.fn,c=$.valHooks,k,j;if(a&&d){j=i.placeholder=function(){return this};j.input=j.textarea=true}else{j=i.placeholder=function(){var l=this;l.filter((a?'textarea':':input')+'[placeholder]').not('.placeholder').bind({'focus.placeholder':b,'blur.placeholder':e}).data('placeholder-enabled',true).trigger('blur.placeholder');return l};j.input=a;j.textarea=d;k={get:function(m){var l=$(m);return l.data('placeholder-enabled')&&l.hasClass('placeholder')?'':m.value},set:function(m,n){var l=$(m);if(!l.data('placeholder-enabled')){return m.value=n}if(n==''){m.value=n;if(m!=h.activeElement){e.call(m)}}else{if(l.hasClass('placeholder')){b.call(m,true,n)||(m.value=n)}else{m.value=n}}return l}};a||(c.input=k);d||(c.textarea=k);$(function(){$(h).delegate('form','submit.placeholder',function(){var l=$('.placeholder',this).each(b);setTimeout(function(){l.each(e)},10)})});$(f).bind('beforeunload.placeholder',function(){$('.placeholder').each(function(){this.value=''})})}function g(m){var l={},n=/^jQuery\d+$/;$.each(m.attributes,function(p,o){if(o.specified&&!n.test(o.name)){l[o.name]=o.value}});return l}function b(m,n){var l=this,o=$(l);if(l.value==o.attr('placeholder')&&o.hasClass('placeholder')){if(o.data('placeholder-password')){o=o.hide().next().show().attr('id',o.removeAttr('id').data('placeholder-id'));if(m===true){return o[0].value=n}o.focus()}else{l.value='';o.removeClass('placeholder');l==h.activeElement&&l.select()}}}function e(){var q,l=this,p=$(l),m=p,o=this.id;if(l.value==''){if(l.type=='password'){if(!p.data('placeholder-textinput')){try{q=p.clone().attr({type:'text'})}catch(n){q=$('<input>').attr($.extend(g(this),{type:'text'}))}q.removeAttr('name').data({'placeholder-password':true,'placeholder-id':o}).bind('focus.placeholder',b);p.data({'placeholder-textinput':q,'placeholder-id':o}).before(q)}p=p.removeAttr('id').hide().prev().attr('id',o).show()}p.addClass('placeholder');p[0].value=p.attr('placeholder')}else{p.removeClass('placeholder')}}}(this,document,jQuery));
 // End form placeholder
+
+$(document).bind('pageshow', function() {
+  var activePage = $('.page.ui-page-active');
+  activePage.find('input[placeholder], textarea[placeholder]').placeholder();
+});
+
+$(function() {
+    $('input, textarea').placeholder();
+    });

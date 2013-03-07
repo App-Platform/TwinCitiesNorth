@@ -10,71 +10,28 @@
 <meta content='True' name='HandheldFriendly' />
 <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
 <meta name="viewport" content="width=device-width" />
-<link rel="stylesheet" href="css/theme.css" />
-<link rel="stylesheet" href="css/app-platform.css" />
 
+<!-- CSS -->
+<link type="text/css" rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.min.css" />
+<link type="text/css" rel="stylesheet" href="css/custom-theme.css" />
+<link type="text/css" rel="stylesheet" href="css/jquery-mobile-fluid960.min.css" />
+<link type="text/css" rel="stylesheet" href="css/colorbox.css" />
+<link type="text/css" rel="stylesheet" href="css/pwi.css" />
+<link type="text/css" rel="stylesheet" href="css/app-platform.css" />
 
-<!-- Add jQuery -->
-<script type="text/javascript" src="scripts/jquery-1.8.2.min.js"></script>
+<!-- ADD SCRIPTS -->
 
-<!-- Add PhoneGap -->
+<!-- Add jQuery / Mobile -->
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.3.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="js/jquery.pwi.js"></script>
+<script type="text/javascript" src="js/app-platform.js"></script>
+                
+<!-- Add PhoneGap --> 
 <script type="text/javascript" src="phonegap.js"></script>
 <script type="text/javascript" src="childbrowser.js"></script>
-
-
-<!-- Call jQuery Mobile -->
-<script type="text/javascript" src="scripts/jquery.mobile-1.2.0.min.js"></script>
-<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />
-
-<!-- iOS add to home screen options -->
-<script type="text/javascript">
-var addToHomeConfig = {
-	animationIn: 'bubble',
-	animationOut: 'drop',
-	lifespan:100000,
-	touchIcon:true,
-};
-</script>
-<script type="text/javascript">
-$(document).bind('pageshow', function() {
-  var activePage = $('.page.ui-page-active');
-  activePage.find('input[placeholder], textarea[placeholder]').placeholder();
-});
-</script>
-
-<!-- Reflow layout, Form Placeholder, iOS home screen popup -->
-<script type="text/javascript" src="scripts/app-platform.js"></script>
-
-<script>
-	$(function() {
-	$('input, textarea').placeholder();
-	});
-</script>
-
-<!-- colorbox -->
-<link rel="stylesheet" href="lightbox/colorbox.css" type="text/css" media="screen" />
-<script type="text/javascript" src="lightbox/jquery.colorbox.js"></script>
-
-<!-- Picasa Web Integrator -->
-<link rel="stylesheet" href="lightbox/pwi.css" type="text/css"/>
-<script type="text/javascript" src="lightbox/jquery.pwi.js"></script>
-<script type="text/javascript" src="lightbox/jquery.blockUI.js"></script>
-
-<script type="text/javascript">
-
-  $(document).ready(function () {
-	var settings = {
-	  username: 'tork30',
-	  maxresults: 50,
-	  mode: 'album',
-	  album: 'App',
-	  thumbCrop: 1,
-	  showAlbumDescription: false,
-	};
-	  $("#gallery_1").pwi(settings);
-  });
-
-</script>
 
 </head> 
 
@@ -82,15 +39,41 @@ $(document).bind('pageshow', function() {
 
 <!-- Home -->
 <div data-role="page" data-theme="a" id="home"> 
-  <div data-role="header" data-theme="a" align="center">
-    <img src="structure/logo.png" alt="Twin Cities North">
-  </div>
+    <div data-role="header" data-theme="a" align="center">
+        <img src="img/logo.png" class="img" alt="Twin Cities North">
+    </div><!-- /header -->
      
-	<div data-role="content">
+<div data-role="content">
     
-<div class="content-primary">
+    <!-- Help Popup-->
+    <div data-role="popup" id="help" data-overlay-theme="b" data-theme="b" style="max-width:500px;">
+    
+        <div data-role="header" align="center">
+            <img src="img/logo2.png">
+        </div>
+    
+        <div data-role="content" class="help">	
+            <h2>How does this work?</h2> 
+            <p>
+            <strong>Send a referral</strong><br>
+            Tap the Email Referral button and an email will be generated with information about the Twin Cities North Chamber of Commerce. Just enter the email address of the person you would like to refer in the To: field and hit send! They will receive the information, and Twin Cities North will have both your email address and your referrals email address for tracking purposes.<br />
+            <br />
+            <strong>How do I get an app like this for my business?</strong><br />
+            You can either tap the Get your own app! button on the bottom of the previous page or you can go to 
+            <a target="_blank" onClick="window.plugins.childBrowser.openExternal('http://app-platform.net');">www.app-platform.net</a> to find out how to get your own app.
+            </p>
+        </div>
+        
+        <div data-role="footer" align="center">
+            <a href="#" data-role="button" data-inline="true" data-theme="b" data-rel="back" data-icon="delete" style="margin-top:10px; margin-bottom:10px;">Close Window</a>
+        </div>
+    </div><!-- help -->
 
-		<iframe src="http://m.twincitiesnorthchamber.chambermaster.com/mobile/events/" style="border-width:0;" width="100%" height="440" frameborder="0" allowtransparency="true" scrolling="auto"></iframe>
+<div class="container_12">
+    <div class="grid_7 ui-block960-a">
+		<div align="center">
+        <iframe src="http://m.twincitiesnorthchamber.chambermaster.com/mobile/events/" style="border-width:0;" width="95%" height="440" frameborder="0" allowtransparency="true" scrolling="auto"></iframe>
+        </div>
         
         <div data-role="collapsible" data-collapsed="true">
         <h2>Events List</h2>
@@ -102,79 +85,53 @@ $(document).bind('pageshow', function() {
 		<iframe src="http://m.twincitiesnorthchamber.chambermaster.com/mobile/directory/" style="border-width:0'" width="100%" height="600" frameborder="0" allowtransparency="true" scrolling="auto"></iframe>
 		</div>
         
-		<br />
-		<br />
-
-</div> 
-<div class="content-secondary">
-
-   	  	<p>
+        <div style="margin-bottom:2em;"></div>
+        
+    </div><!-- /block a -->
+    <div class="grid_5 ui-block960-b">
       	
-        <div align="center">
-        <a id="body" href="#help" data-rel="popup" data-position-to="window" data-transition="pop">How does this work?</a><br />
-        </div>
-        
-        <!-- Help Popup-->
-        <div data-role="popup" id="help" data-overlay-theme="b" data-theme="b" style="max-width:500px;">
-        
-            <div data-role="header" align="center">
-                <img src="structure/logo2.png">
-            </div>
-        
-            <div data-role="content" style="background-color:#fff;">	
-                <h2>How does this work?</h2> 
-                <p>
-                <strong>Send a referral</strong><br>
-                Tap the Email Referral button and an email will be generated with information about the Twin Cities North Chamber of Commerce. Just enter the email address of the person you would like to refer in the To: field and hit send! They will receive the information, and Twin Cities North will have both your email address and your referrals email address for tracking purposes.<br />
-                <br />
-                <strong>How do I get an app like this for my business?</strong><br />
-                You can either tap the Get your own app! button on the bottom of the previous page or you can go to 
-                <a target="_blank" onClick="window.plugins.childBrowser.openExternal('http://app-platform.net');">www.app-platform.net</a> to find out how to get your own app.
-                </p>
-            </div>
-            
-            <div data-role="footer" align="center">
-                <a href="#" data-role="button" data-inline="true" data-theme="b" data-rel="back" data-icon="delete" style="margin-top:10px; margin-bottom:10px;">Close Window</a>
-            </div>
-        </div>
-        
-		<br />
+        <p align="center">
+        <a id="body" href="#help" data-rel="popup" data-position-to="window" data-transition="pop">How does this work?</a>
+        </p>
         
 	  	<a href="mailto:?cc=info%40twincitiesnorth.org&subject=Check%20out%20the%20TCN%20Chamber!&body=Have%20you%20ever%20checked%20out%20membership%20with%20the%20Twin%20Cities%20North%20Chamber%20of%20Commerce%3F%20%20They%20are%20doing%20some%20really%20great%20things%20for%20businesses!%20Establishing%20partnerships%20for%20members%20within%20the%20community%2C%20offering%20dynamic%20relationship%20building%20opportunities%2C%20and%20working%20effectively%20with%20our%20elected%20officials.%0D%0A%0D%0A%20%0D%0A%0D%0AThe%20value%20they%20provide%20will%20be%20a%20great%20resource%20for%20you%2C%20and%20you%20would%20be%20a%20great%20asset%20to%20the%20group%20as%20well.%20%20Win%2FWin!%0D%0A%0D%0A%20%0D%0A%0D%0ACheck%20them%20out%20at%20www.twincitiesnorth.org" target="_blank" data-icon="email" data-role="button" data-transition="slide">Email Referral</a>
   		<a href="mailto:?cc=info%40twincitiesnorth.org&subject=Get%20the%20TCN%20Chamber%20App!&body=Go%20to%20http%3A%2F%2Ftwincitiesnorth.org%2Fapp%20to%20get%20our%20app!" target="_blank" data-icon="email" data-role="button" data-transition="slide">Send this app</a>
     	
-		<br />
-		<br />
+        <div style="margin-bottom:2em;"></div>
 
-    	<strong>Contact</strong>
-        <a href="tel:7635719781 " data-role="button" data-icon="phone">(763) 571-9781 </a>
+    	<p><strong>Contact</strong></p>
+        <a href="tel:7635719781 " data-role="button" data-icon="phone">(763) 571-9781</a>
         <a href="mailto:info@twincitiesnorth.org" target="_blank" data-icon="email" data-role="button">info@twincitiesnorth.org</a>
         <a data-role="button" data-icon="info" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://twincitiesnorth.org');">twincitiesnorth.org</a>
         <a data-role="button" data-icon="facebook" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://www.facebook.com/pages/Twin-Cities-North-Chamber-of-Commerce/143994668947914?ref=ts');">Facebook</a>
         <a data-role="button" data-icon="twitter" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://twitter.com/TwinCitiesNorth');">Twitter</a>
         <a data-role="button" data-icon="linkedin" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://www.linkedin.com/groups?mostPopular=&gid=151254');">LinkedIn</a>
-        <br />
-        <strong>Location:</strong><br />
-        525 Main Street, Suite 200 <br />
-        New Brighton, MN 55112<br />
-        <a data-role="button" data-icon="home" target="_blank" onClick="window.plugins.childBrowser.openExternal('https://maps.google.com/maps?q=525+Main+Street,+Suite+200+New+Brighton,+MN+55112&ie=UTF-8&hq=&hnear=0x52b32ed1fef218fb:0x448e1c8c3e157e3a,Main+St,+New+Brighton,+MN+55112&gl=us&ei=Q_20UP-wJsPVyQH5-IH4BQ&ved=0CC8Q8gEwAA');">Map</a>
-        <br />
-</div>
-        
-        </p>
-  </div> 
-    
-  <div data-role="footer" data-theme="a">
-    <div class="footerText" align="center" style="margin-top:15px; margin-bottom:15px;">
-        <a href="mailto:?cc=info%40app-platform.net&subject=Get%20Your%20Own%20App!&body=Go%20to%20http%3A%2F%2Fapp-platform.net%20to%20find%20out%20how%20to%20get%20your%20own%20app!" target="_blank" data-icon="email" data-inline="true" data-role="button" data-theme="b">Get your own app!</a>
-        <br /><br />
-		<script type="text/javascript"> 
-            copyright=new Date(); update=copyright.getFullYear(); document.write("&nbsp;Copyright &copy; "+ update + " Twin Cities North Chamber of Commerce");
-        </script>
-      </div>
-    </div> 
-</div>
 
+        <div style="margin-bottom:2em;"></div>
+
+        <p><strong>Location:</strong><br />
+        525 Main Street, Suite 200<br />
+        New Brighton, MN 55112</p>
+        <a data-role="button" data-icon="home" target="_blank" onClick="window.plugins.childBrowser.openExternal('https://maps.google.com/maps?q=525+Main+Street,+Suite+200+New+Brighton,+MN+55112&ie=UTF-8&hq=&hnear=0x52b32ed1fef218fb:0x448e1c8c3e157e3a,Main+St,+New+Brighton,+MN+55112&gl=us&ei=Q_20UP-wJsPVyQH5-IH4BQ&ved=0CC8Q8gEwAA');">Map</a>
+
+    </div><!-- /block b -->
+</div><!-- /container -->
+</div><!-- /content -->
+    
+<div data-role="footer" data-theme="a">
+    <div class="footerText" align="center">
+        <a href="mailto:?cc=info%40app-platform.net&subject=Get%20Your%20Own%20App!&body=Go%20to%20http%3A%2F%2Fapp-platform.net%20to%20find%20out%20how%20to%20get%20your%20own%20app!" target="_blank" data-icon="email" data-inline="true" data-role="button" data-theme="b">Get your own app!</a>
+        <p><script type="text/javascript"> 
+            copyright=new Date(); update=copyright.getFullYear(); document.write("&nbsp;Copyright &copy; "+ update + " Twin Cities North Chamber of Commerce");
+        </script></p>
+    </div>
+</div><!-- /footer -->
+</div><!-- /home -->
+
+<!-- Bump Headers -->
+<script>
+$(".grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12").find("p").css("margin-left", "10px");
+</script>
 
 </body>
 </html>

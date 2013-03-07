@@ -1,7 +1,6 @@
 // ColorBox v1.3.20.1 - jQuery lightbox plugin
 // (c) 2012 Jack Moore - jacklmoore.com
 // License: http://www.opensource.org/licenses/mit-license.php
-
 (function ($, document, window) {
 	var
 	// Default settings object.
@@ -10,11 +9,11 @@
 		transition: "elastic",
 		speed: 300,
 		width: false,
-		initialWidth: "600",
+		initialWidth: "50",
 		innerWidth: false,
 		maxWidth: "90%",
 		height: false,
-		initialHeight: "450",
+		initialHeight: "50",
 		innerHeight: false,
 		maxHeight: "90%",
 		scalePhotos: true,
