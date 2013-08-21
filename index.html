@@ -1,7 +1,5 @@
 <!DOCTYPE html>
- 
 <html>
- 
 <head> 
 <title>Twin Cities North</title> 
 <link rel="SHORTCUT ICON" href="structure/favicon.ico" />
@@ -29,9 +27,8 @@
 <script type="text/javascript" src="js/jquery.pwi.js"></script>
 <script type="text/javascript" src="js/app-platform.js"></script>
                 
-<!-- Add PhoneGap --> 
+<!-- Add PhoneGap -->
 <script type="text/javascript" src="phonegap.js"></script>
-<script type="text/javascript" src="childbrowser.js"></script>
 
 </head> 
 
@@ -53,15 +50,17 @@
         </div>
     
         <div data-role="content" class="help">	
-            <h2>How does this work?</h2> 
-            <p>
-            <strong>Send a referral</strong><br>
-            Tap the Email Referral button and an email will be generated with information about the Twin Cities North Chamber of Commerce. Just enter the email address of the person you would like to refer in the To: field and hit send! They will receive the information, and Twin Cities North will have both your email address and your referrals email address for tracking purposes.<br />
-            <br />
-            <strong>How do I get an app like this for my business?</strong><br />
-            You can either tap the Get your own app! button on the bottom of the previous page or you can go to 
-            <a target="_blank" onClick="window.plugins.childBrowser.openExternal('http://app-platform.net');">www.app-platform.net</a> to find out how to get your own app.
-            </p>
+            <h2>How does this work?</h2>
+            <p><strong>Send a referral</strong><br>
+            Tap the &quot;Email Referral&quot; button and enter the email address of the person you want to refer into the &quot;Referral Email&quot; field, enter your name into the &quot;Your Name&quot; field and if you would like to include any other information enter it into the &quot;Message&quot; field. Once you are done tap the &quot;Submit&quot; button and an email will be sent to the email address provided. An email alert will also be sent to 
+            <!---->Twin Cities North for tracking purposes.</p>
+            <p><strong>Send this app</strong><br>
+            Tap the &quot;Send this app&quot; button and enter the email address of the person you want to send the app into the &quot;Email&quot; field and enter your name into the &quot;Your Name&quot; field. Once you are done tap the &quot;Submit&quot; button and an email will a link to the apps Landing Page be sent to the email address provided. An email alert will also be sent to 
+            <!---->Twin Cities North for tracking purposes.</p>
+    		<p><strong>Get Your Own App</strong><br>
+   		    Tap the &quot;Get your own app!&quot; button and enter the email address of the person interested in getting more information about apps from App-Platform.net in the &quot;Email&quot; field. Once you are done tap the &quot;Submit&quot; button and a representative of App-Platform.net will be in touch.</p>
+        	<p><strong>Learn more</strong><br>
+            Go to <a target="_blank" onClick="window.open('http://app-platform.net', '_system', 'location=yes');">App-Platform.net</a> to learn more about this app and others.></p>
         </div>
         
         <div data-role="footer" align="center">
@@ -94,25 +93,62 @@
         <a id="body" href="#help" data-rel="popup" data-position-to="window" data-transition="pop">How does this work?</a>
         </p>
         
-	  	<a href="mailto:?cc=info%40twincitiesnorth.org&subject=Check%20out%20the%20TCN%20Chamber!&body=Have%20you%20ever%20checked%20out%20membership%20with%20the%20Twin%20Cities%20North%20Chamber%20of%20Commerce%3F%20%20They%20are%20doing%20some%20really%20great%20things%20for%20businesses!%20Establishing%20partnerships%20for%20members%20within%20the%20community%2C%20offering%20dynamic%20relationship%20building%20opportunities%2C%20and%20working%20effectively%20with%20our%20elected%20officials.%0D%0A%0D%0A%20%0D%0A%0D%0AThe%20value%20they%20provide%20will%20be%20a%20great%20resource%20for%20you%2C%20and%20you%20would%20be%20a%20great%20asset%20to%20the%20group%20as%20well.%20%20Win%2FWin!%0D%0A%0D%0A%20%0D%0A%0D%0ACheck%20them%20out%20at%20www.twincitiesnorth.org" target="_blank" data-icon="email" data-role="button" data-transition="slide">Email Referral</a>
-  		<a href="mailto:?cc=info%40twincitiesnorth.org&subject=Get%20the%20TCN%20Chamber%20App!&body=Go%20to%20http%3A%2F%2Ftwincitiesnorth.org%2Fapp%20to%20get%20our%20app!" target="_blank" data-icon="email" data-role="button" data-transition="slide">Send this app</a>
+        <!-- Email referral -->
+        <a id="emailRefBtn" href="" target="_blank" data-role="button" data-icon="email">Email Referral</a>
+        <form id="emailReferral" class="emailReferral" method="post" data-ajax="false" style="display:none; padding-left:10px; padding-right:10px; padding-bottom:20px;">
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <label for="Email">Referral Email</label>
+          <input type="text" name="Email" id="Email" value="" placeholder="Referral Email" class="required email" data-mini="true" />
+        </div>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <label for="Name">Your Name</label>
+          <input type="text" name="Name" id="Name" value="" placeholder="Your Name" data-mini="true" class="required" />
+        </div>
+        <label for="Message"><span class="smallText">Message (optional)</span></label>
+        <textarea name="Message" id="Message" style="background:#ffffff;" data-mini="true"></textarea>
+        
+        <div data-role="controlgroup" data-type="horizontal" style="margin-left:-10px;">
+        <input type="submit" id="post_submit" name="submit" value="Submit" class="submit-value" data-inline="true" data-mini="true" data-theme="b" data-icon="check" />
+        <a href="#help" data-role="button" data-rel="popup" data-position-to="window" data-transition="pop" data-mini="true" data-theme="b" data-icon="alert">Help</a>
+        <a id="emailRefReset" href="" data-role="button" data-inline="true" data-mini="true" data-theme="b" data-icon="delete">Clear</a>
+        </div>
+        </form><!-- /email referral -->
+        
+        <!-- Send this app -->
+        <a id="sendAppBtn" href="" target="_blank" data-role="button" data-icon="email">Send this app</a>
+        <form id="sendApp" class="sendApp" method="post" data-ajax="false" style="display:none; padding-left:10px; padding-right:10px; padding-bottom:20px;">
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <label for="Email">Email</label>
+          <input type="text" name="Email" id="Email" value="" placeholder="Email" class="required email" data-mini="true" />
+        </div>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <label for="Name">Your Name</label>
+          <input type="text" name="Name" id="Name" value="" placeholder="Your Name" data-mini="true" class="required" />
+        </div>
+        
+        <div data-role="controlgroup" data-type="horizontal" style="margin-left:-10px;">
+        <input type="submit" id="post_submit" name="submit" value="Submit" class="submit-value" data-inline="true" data-mini="true" data-theme="b" data-icon="check" />
+        <a href="#help" data-role="button" data-rel="popup" data-position-to="window" data-transition="pop" data-mini="true" data-theme="b" data-icon="alert">Help</a>
+        <a id="sendAppReset" href="" data-role="button" data-inline="true" data-mini="true" data-theme="b" data-icon="delete">Clear</a>
+        </div>
+        </form><!-- /send this app -->
     	
         <div style="margin-bottom:2em;"></div>
 
     	<p><strong>Contact</strong></p>
         <a href="tel:7635719781 " data-role="button" data-icon="phone">(763) 571-9781</a>
         <a href="mailto:info@twincitiesnorth.org" target="_blank" data-icon="email" data-role="button">info@twincitiesnorth.org</a>
-        <a data-role="button" data-icon="info" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://twincitiesnorth.org');">twincitiesnorth.org</a>
-        <a data-role="button" data-icon="facebook" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://www.facebook.com/pages/Twin-Cities-North-Chamber-of-Commerce/143994668947914?ref=ts');">Facebook</a>
-        <a data-role="button" data-icon="twitter" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://twitter.com/TwinCitiesNorth');">Twitter</a>
-        <a data-role="button" data-icon="linkedin" target="_blank" onClick="window.plugins.childBrowser.openExternal('http://www.linkedin.com/groups?mostPopular=&gid=151254');">LinkedIn</a>
+        <a data-role="button" data-icon="info" target="_blank" onClick="window.open('http://twincitiesnorth.org', '_system', 'location=yes');">twincitiesnorth.org</a>
+        <a data-role="button" data-icon="facebook" target="_blank" onClick="window.open('http://www.facebook.com/pages/Twin-Cities-North-Chamber-of-Commerce/143994668947914?ref=ts', '_system', 'location=yes');">Facebook</a>
+        <a data-role="button" data-icon="twitter" target="_blank" onClick="window.open('http://twitter.com/TwinCitiesNorth', '_system', 'location=yes');">Twitter</a>
+        <a data-role="button" data-icon="linkedin" target="_blank" onClick="window.open('http://www.linkedin.com/groups?mostPopular=&gid=151254', '_system', 'location=yes');">LinkedIn</a>
 
         <div style="margin-bottom:2em;"></div>
 
         <p><strong>Location:</strong><br />
         525 Main Street, Suite 200<br />
         New Brighton, MN 55112</p>
-        <a data-role="button" data-icon="home" target="_blank" onClick="window.plugins.childBrowser.openExternal('https://maps.google.com/maps?q=525+Main+Street,+Suite+200+New+Brighton,+MN+55112&ie=UTF-8&hq=&hnear=0x52b32ed1fef218fb:0x448e1c8c3e157e3a,Main+St,+New+Brighton,+MN+55112&gl=us&ei=Q_20UP-wJsPVyQH5-IH4BQ&ved=0CC8Q8gEwAA');">Map</a>
+        <a data-role="button" data-icon="home" target="_blank" onClick="window.open(https://maps.google.com/maps?q=525+Main+Street,+Suite+200+New+Brighton,+MN+55112&ie=UTF-8&hq=&hnear=0x52b32ed1fef218fb:0x448e1c8c3e157e3a,Main+St,+New+Brighton,+MN+55112&gl=us&ei=Q_20UP-wJsPVyQH5-IH4BQ&ved=0CC8Q8gEwAA', '_system', 'location=yes');">Map</a>
 
     </div><!-- /block b -->
 </div><!-- /container -->
@@ -120,7 +156,21 @@
     
 <div data-role="footer" data-theme="a">
     <div class="footerText" align="center">
-        <a href="mailto:?cc=info%40app-platform.net&subject=Get%20Your%20Own%20App!&body=Go%20to%20http%3A%2F%2Fapp-platform.net%20to%20find%20out%20how%20to%20get%20your%20own%20app!" target="_blank" data-icon="email" data-inline="true" data-role="button" data-theme="b">Get your own app!</a>
+        <!-- Get your own app -->
+        <a id="getYourOwnAppBtn" href="" target="_blank" data-role="button" data-theme="b" data-inline="true" data-icon="email">Get your own app!</a>
+        <form id="getYourOwnApp" class="getYourOwnApp" method="post" data-ajax="false" style="display:none;">
+        <div style="margin-left:auto; margin-right:auto; max-width:250px; margin-top:-10px;">
+            <div data-role="fieldcontain" class="ui-hide-label">
+              <label for="Email">Email</label>
+              <input type="text" name="Email" id="Email" value="" placeholder="Email" class="required email" data-mini="true" />
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+            <input type="submit" id="post_submit" name="submit" value="Submit" class="submit-value" data-inline="true" data-mini="true" data-icon="check" data-theme="b" />
+            <a id="getYourOwnAppReset" href="" data-role="button" data-inline="true" data-mini="true" data-icon="delete" data-theme="b">Clear</a>
+            </div>
+        </div>
+        </form><!-- /get your own app -->
+        <div style="clear:both"></div>
         <p><script type="text/javascript"> 
             copyright=new Date(); update=copyright.getFullYear(); document.write("&nbsp;Copyright &copy; "+ update + " Twin Cities North Chamber of Commerce");
         </script></p>
@@ -131,6 +181,83 @@
 <!-- Bump Headers -->
 <script>
 $(".grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12").find("p").css("margin-left", "10px");
+</script>
+
+<!-- Email Referral Validation -->
+<script type="text/javascript">
+$(function() {
+    $( "#emailReferral" ).validate({
+        submitHandler: function(form) {
+           var data= $(form).serialize()
+        
+                $.ajax({
+                type: "POST",
+                url: "http://twincitiesnorth.org/app/php/emailReferral.php",
+                data: data,
+                success: function(){
+                    $(form).fadeOut();
+                }
+                });
+            return false;
+        }
+    });
+});     
+</script>
+
+<!-- Send App Validation -->
+<script type="text/javascript">
+$(function() {
+    $( "#sendApp" ).validate({
+        submitHandler: function(form) {
+           var data= $(form).serialize()
+        
+                $.ajax({
+                type: "POST",
+                url: "http://twincitiesnorth.org/app/php/sendApp.php",
+                data: data,
+                success: function(){
+                    $(form).fadeOut();
+                }
+                });
+            return false;
+        }
+    });
+});     
+</script>
+
+<!-- Get Your Own App Validation -->
+<script type="text/javascript">
+$(function() {
+    $( "#getYourOwnApp" ).validate({
+        submitHandler: function(form) {
+           var data= $(form).serialize()
+        
+                $.ajax({
+                type: "POST",
+                url: "http://twincitiesnorth.org/app/php/getYourOwnApp.php",
+                data: data,
+                success: function(){
+                    $(form).fadeOut();
+                }
+                });
+            return false;
+        }
+    });
+});     
+</script>
+
+<script>
+<!-- Email referral button -->
+$(function() {$("#emailRefBtn").toggle(function(){$("#emailReferral").show();},function(){$("#emailReferral").hide(); $("#emailReferral")[0].reset();});});
+$(function() {$('#emailRefReset').click( function() { $("#emailReferral")[0].reset(); });});
+
+<!-- Send App button -->
+$(function() {$("#sendAppBtn").toggle(function(){$("#sendApp").show();},function(){$("#sendApp").hide(); $("#sendApp")[0].reset();});});
+$(function() {$('#sendAppReset').click( function() { $("#sendApp")[0].reset(); });});
+
+<!-- Get Your Own App button -->
+$(function() {$("#getYourOwnAppBtn").toggle(function(){$("#getYourOwnApp").show();},function(){$("#getYourOwnApp").hide(); $("#getYourOwnApp")[0].reset();});});
+$(function() {$('#getYourOwnAppReset').click( function() { $("#getYourOwnApp")[0].reset(); });});
 </script>
 
 </body>
