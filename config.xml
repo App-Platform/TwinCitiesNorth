@@ -16,20 +16,25 @@
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>
 
-    <preference name="phonegap-version" value="2.9.0" />
+    <preference name="phonegap-version" value="3.1.0" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
 	<preference name="android-installLocation" value="auto" />
 
-    <icon src="iconsAndroid/icon.png" />
+    <icon src="iconsAndroid/android-icon-144x144.png" />
 	<icon src="iconsAndroid/android-icon-36x36.png" gap:platform="android" gap:density="ldpi" />
 	<icon src="iconsAndroid/android-icon-48x48.png" gap:platform="android" gap:density="mdpi" />
 	<icon src="iconsAndroid/android-icon-72x72.png" gap:platform="android" gap:density="hdpi" />
 	<icon src="iconsAndroid/android-icon-96x96.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="iconsAndroid/android-icon-144x144.png" gap:platform="android" gap:density="xxhdpi" />
 
 	<gap:splash src="iconsAndroid/android-startup-image-200x320.png" gap:platform="android" gap:density="ldpi" />
 	<gap:splash src="iconsAndroid/android-startup-image-320x480.png" gap:platform="android" gap:density="mdpi" />
 	<gap:splash src="iconsAndroid/android-startup-image-480x800.png" gap:platform="android" gap:density="hdpi" />
 	<gap:splash src="iconsAndroid/android-startup-image-720x1280.png" gap:platform="android" gap:density="xhdpi" />
+	<gap:splash src="iconsAndroid/android-startup-image-720x1280.png" gap:platform="android" gap:density="xxhdpi" />
+	
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="org.apache.cordova.InAppBrowser"/>
 
 </widget>
