@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.appplatform.twincitiesnorth"
-        version   = "2.0.2">
+        version   = "2.0.3">
 		
     <name>Twin Cities North Chamber of Commerce</name>
 
@@ -16,7 +16,7 @@
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>
 
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
 	<preference name="android-installLocation" value="auto" />
@@ -34,7 +34,7 @@
 	<gap:splash src="iconsAndroid/android-startup-image-720x1280.png" gap:platform="android" gap:density="xhdpi" />
 	<gap:splash src="iconsAndroid/android-startup-image-720x1280.png" gap:platform="android" gap:density="xxhdpi" />
 	
-	<gap:plugin name="org.apache.cordova.device" />
-	<gap:plugin name="org.apache.cordova.InAppBrowser"/>
+	<gap:plugin name="cordova-plugin-inappbrowser" source="npm"  />
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
 </widget>
