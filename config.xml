@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.appplatform.twincitiesnorth"
-        version   = "2.0.3">
+        version   = "2.0.4">
 		
     <name>Twin Cities North Chamber of Commerce</name>
 
@@ -16,7 +16,7 @@
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>
 
-    <preference name="phonegap-version" value="cli-6.5.0" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
 	<preference name="android-installLocation" value="auto" />
